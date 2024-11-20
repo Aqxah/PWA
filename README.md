@@ -1,1 +1,9 @@
-# PWA
+This is the beginning stages and interworkings to design a PWA that will allow users to navigate the application and plan their vacations accordingly to what best suits their needs. It will have the ability to showcase and allow for the booking of many different destination spots.
+
+In order to view the prototype design, you will need to download the files into your local environment to access the index.html file on your computer as the website does not yet have a running web address.
+
+The service worker is a crucial component that managages network request and allows for the offline capabilites. It implements a cache strategy to make for quicker load times and a better user experience. The manifest.json breaks down how the PWA will appear when installed onto a device. I set the name, icons, theme, background, url and display to standalone to achieve this.
+
+ Firebase and IndexedDB were integrated to enable offline functionality and seamless synchronization of data once the app is back online. Firebase Firestore serves as the primary backend for storing and managing destination data, while IndexedDB acts as the local storage solution for offline use. When the app is offline, all create, read, update, and delete (CRUD) operations are performed on IndexedDB, ensuring the user can interact with the app even without a network connection. Once the app goes online, any changes made while offline are automatically synchronized with Firebase, ensuring the data is consistent across both platforms.
+
+Each destination is assigned a unique document ID by Firebase when added. This ID is stored in both Firebase and IndexedDB to maintain synchronization between the two storage systems. The app checks for any unsynced data in IndexedDB when going online, pushes it to Firebase, and ensures the Firebase document IDs are properly maintained for consistency. This integration ensures that the user experience remains smooth regardless of internet connectivity, with the app automatically syncing data when the network is available.
